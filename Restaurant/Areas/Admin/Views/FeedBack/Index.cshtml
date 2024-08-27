@@ -1,0 +1,130 @@
+﻿@model IEnumerable<Restaurant.Areas.Admin.ViewModels.FeedBackModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="pagetitle">
+    <h1>Master Partner</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Home</a></li>
+            <li class="breadcrumb-item active"><a asp-action="Index" asp-controller="FeedBack">Feed Back</a></li>
+            <li class="breadcrumb-item active">Create</li>
+        </ol>
+    </nav>
+</div>
+<p class="text-right text-end">
+    <a class="btn btn-primary" asp-action="Create">Create New</a>
+</p>
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table datatable">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Image
+                                </th>
+                                <th>
+                                    message
+                                </th>
+                                <th>
+                                    Role
+                                </th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.FeedBackName)
+                                    </td>
+                                    <td>
+                                        <img src="~/images//@item.FeedBackImgUrl" style="max-width:50px" />
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.FeedBackMessage)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.FeedBackRole)
+                                    </td>
+
+                                    <td>
+                                        <a asp-action="Edit" asp-route-id="@item.FeedBackId"><i class="bx bxs-edit text-secondary h5"></i></a> |
+                                        <a href="" data-bs-toggle="modal" data-bs-target="#deleteModal" class="csBtnDelete"
+                                           data-path="@Url.ActionLink("IsDelete", "FeedBack", new { idDelete = item.FeedBackId })">
+                                            <i class="bx bxs-trash text-danger h5"></i>
+                                            @if (item.IsActive == true)
+                                            {
+                                                <a asp-action="Active" asp-route-id="@item.FeedBackId"> <i class="ri-eye-fill text-success h5"></i></a>
+                                            }
+                                            else
+                                            {
+                                                <a asp-action="Active" asp-route-id="@item.FeedBackId"> <i class="ri-eye-close-fill text-danger h5"></i></a>
+                                            }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="modal fade" id="deleteModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure for delete this item ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="btnCansel" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" id="btnConfirmDelete">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous">
+</script>
+
+
+<script>
+
+
+
+    $(function () {
+
+        var dataPath = "";
+        $(".csBtnDelete").click(function () {
+            dataPath = $(this).data("path")
+
+        });
+        $("#btnConfirmDelete").click(function () {
+            window.location = dataPath;
+            dataPath = "";
+
+        });
+
+        $("#btnCansel").click(function () {
+            dataPath = "";
+        });
+
+    })
+</script>
+

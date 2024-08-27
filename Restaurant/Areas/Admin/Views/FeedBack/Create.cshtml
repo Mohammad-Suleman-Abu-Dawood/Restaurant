@@ -1,0 +1,64 @@
+﻿@model Restaurant.Areas.Admin.ViewModels.FeedBackModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+div class="pagetitle">
+<h1>Feed Back</h1>
+<nav>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Home</a></li>
+        <li class="breadcrumb-item active"><a asp-action="Index" asp-controller="FeedBack">Feed Back</a></li>
+        <li class="breadcrumb-item active">Create</li>
+    </ol>
+</nav>
+
+
+<section class="section dashboard">
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Multi Columns Form</h5>
+                    <form asp-action="Create" class="g-3 row " enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="FeedBackMessage" class="control-label"></label>
+                            <input asp-for="FeedBackMessage" class="form-control" />
+                            <span asp-validation-for="FeedBackMessage" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Files" class="control-label"></label>
+                            <input asp-for="Files" class="form-control" />
+                            <span asp-validation-for="Files" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="FeedBackName" class="control-label"></label>
+                            <input asp-for="FeedBackName" class="form-control" />
+                            <span asp-validation-for="FeedBackName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="FeedBackRole" class="control-label"></label>
+                            <input asp-for="FeedBackRole" class="form-control" />
+                            <span asp-validation-for="FeedBackRole" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </div>
+
+                        <input asp-for="FeedBackImgUrl" type="hidden" />
+                        <input asp-for="IsActive" type="hidden" />
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

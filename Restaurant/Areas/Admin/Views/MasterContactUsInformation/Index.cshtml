@@ -1,0 +1,142 @@
+﻿@model IEnumerable<Restaurant.Models.MasterContactUsInformation>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="pagetitle">
+    <h1>Master Menu</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+
+            <li class="breadcrumb-item active">Master Contat Us Information</li>
+        </ol>
+    </nav>
+    <p>
+        <a style="float:right" class="btn btn-primary" asp-action="Create">Create New</a>
+    </p>
+</div>
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p> </p>
+
+                    <table class="table datatable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MasterContactUsInformationIdesc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MasterContactUsInformationImageUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MasterContactUsInformationRedirect)
+            </th><th>
+                @Html.DisplayNameFor(model => model.ourLocation)
+            </th><th>
+                @Html.DisplayNameFor(model => model.ourMail)
+            </th><th>
+                @Html.DisplayNameFor(model => model.ourphone)
+            </th>
+           
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MasterContactUsInformationIdesc)
+            </td>
+            <td>
+                
+                                        <img src="~/Images/@item.MasterContactUsInformationImageUrl " style="max-width:30px" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MasterContactUsInformationRedirect)
+            </td><td>
+                @Html.DisplayFor(modelItem => item.ourMail)
+            </td><td>
+                @Html.DisplayFor(modelItem => item.ourLocation)
+            </td><td>
+                @Html.DisplayFor(modelItem => item.ourphone)
+            </td>
+            
+            <td>
+                                        <a class="ri-ball-pen-line " asp-action="Edit" asp-route-id="@item.MasterContactUsInformationId"></a> |
+                                        <a class="PathDelete " data-bs-toggle="modal" data-bs-target="#basicModal" data-m="@Url.ActionLink("Delete", "MasterContactUsInformation", new { id = item.MasterContactUsInformationId })">
+                                            <i class=" ri-delete-bin-4-fill text-danger h4"></i>
+                                        </a>
+
+                                        @if (@item.IsActive == true)
+                                        {
+                                            <a asp-action="Active" asp-route-id="@item.MasterContactUsInformationId">
+                                                <i class="ri-eye-fill text-success h5"></i>
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a asp-action="Active" asp-route-id="@item.MasterContactUsInformationId">
+                                                <i class="ri-eye-close-fill text-danger h5"></i>
+                                            </a>
+                                        }
+
+
+                                    </td>
+        </tr>
+}
+    </tbody>
+</table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<div class="modal fade" id="basicModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Basic Modal</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Do you Delete this Row?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary ConfirmDelete"> Delete </button>
+            </div>
+        </div>
+    </div>
+</div><!-- End Basic Modal-->
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous">
+</script>
+
+
+<script>
+    $(function () {
+        var datapath = ""
+        $('.PathDelete').on('click', function () {
+            datapath = $(this).data('m')
+
+
+        })
+
+
+        $('.ConfirmDelete').on('click', function () {
+            window.location = datapath;
+
+        })
+
+    })
+</script>

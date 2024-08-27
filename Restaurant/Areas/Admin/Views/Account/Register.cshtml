@@ -1,0 +1,67 @@
+﻿@model Restaurant.Areas.Admin.ViewModels.RegisterModel
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = "_Register";
+}
+
+
+
+<form asp-action="Register" class="row g-3 needs-validation" novalidate="">
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="col-12">
+        <label asp-for="Email" class="form-label">Your Email</label>
+                      <div class="input-group has-validation">
+                        <span class="input-group-text" id="inputGroupPrepend"></span>
+            <input asp-for="Email" class="form-control" required="" />
+            <div class="invalid-feedback">Please choose a Email.</div>
+                      </div>
+                    </div>
+
+
+    @* <div class="col-md-12 input-group has-validation">
+        <label asp-for="Email" class="control-label"></label>
+        <input asp-for="Email" class="form-control" required="" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div> *@
+
+    <div class="col-12">
+        <label for="yourPassword" class="form-label">Password</label>
+        <input asp-for="Password" class="form-control" required="" />
+        <div class="invalid-feedback">Please enter your password!</div>
+    </div>
+
+    @* <div class=" col-md-6 input-group has-validation">
+        <label asp-for="Password" class="form-label"></label>
+        <input asp-for="Password" class="form-control" required="" />
+        <div class="invalid-feedback">Please enter your password!</div>
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div> *@
+    
+    <div class="col-12">
+        
+        <label asp-for="ConfirmPassword" class="form-label"></label>
+        <input asp-for="ConfirmPassword" class="form-control" required="" />
+        <div class="invalid-feedback">Please Rewrite your password </div>
+    </div>
+
+   @*  <div class=" col-md-6 input-group has-validation">
+        <label asp-for="ConfirmPassword" class="form-label"></label>
+        <input asp-for="ConfirmPassword" class="form-control" required="" />
+        <div class="invalid-feedback">Please enter your password!</div>
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+    </div>
+ *@
+
+
+
+    <div class="col-12">
+        <button class="btn btn-primary w-100" type="submit" value="Register">Create Account</button>
+    </div>
+    <div class="col-12">
+        <p class="small mb-0">Already have an account? <a asp-action="Login" asp-controller="Account">Log in</a></p>
+    </div>
+
+
+</form>

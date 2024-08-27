@@ -1,0 +1,60 @@
+﻿@model Restaurant.Areas.Admin.ViewModels.MasterSliderModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="pagetitle">
+    <h1>Index</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Home</a></li>
+            <li class="breadcrumb-item"> <a asp-action="Index" asp-controller="MasterSlider">Master Slider </a></li>
+            <li class="breadcrumb-item active">Edit</li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-6">
+
+            <div class="card">
+                <div class="card-body">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MasterSliderId" />
+            <div class="form-group">
+                <label asp-for="MasterSliderTitle" class="control-label"></label>
+                <input asp-for="MasterSliderTitle" class="form-control" />
+                <span asp-validation-for="MasterSliderTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MasterSliderBreef" class="control-label"></label>
+                <input asp-for="MasterSliderBreef" class="form-control" />
+                <span asp-validation-for="MasterSliderBreef" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MasterSliderDesc" class="control-label"></label>
+                <input asp-for="MasterSliderDesc" class="form-control" />
+                <span asp-validation-for="MasterSliderDesc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                            <label asp-for="Files" class="control-label"></label>
+                            <input asp-for="Files" class="form-control" />
+                            <span asp-validation-for="Files" class="text-danger"></span>
+            </div>
+           <input type="hidden" asp-for="MasterSliderUrl" />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

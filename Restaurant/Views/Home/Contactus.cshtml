@@ -1,0 +1,85 @@
+﻿@model Restaurant.ViewModels.HomeModel
+@{
+    ViewData["Title"] = "ContactUs";
+}
+
+<div class="breadcrumb-area bg-img ptb-80" style="background-image:url(/assets/img/banner/breath.jpg);">
+    <div class="container">
+        <div class="breadcrumb-content text-center">
+            <h3>Contact us</h3>
+            <ul>
+                <li>
+                    <a href="/Home">Home</a>
+                </li>
+                <li class="active">Contact us</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="contact-area pt-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="contact-message-wrapper">
+                    <h4 class="contact-title mb-25">Leave Us a Message</h4>
+                    <div class="contact-message">
+                        <form asp-action="ContactUs" asp-controller="Home" method="post">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="contact-form-style mb-20">
+                                        <input required asp-for="TransactionContactUs.TransactionContactUsFullName" placeholder="Full Name" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="contact-form-style mb-20">
+                                        <input required asp-for="TransactionContactUs.TransactionContactUsEmail" placeholder="Email Address" type="email">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="contact-form-style mb-20">
+                                        <input required asp-for="TransactionContactUs.TransactionContactUsSubject" placeholder="Subject" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="contact-form-style">
+                                        <textarea required asp-for="TransactionContactUs.TransactionContactUsMessage" placeholder="Message"></textarea>
+                                        <button class="submit btn-style" type="submit">SEND MESSAGE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <p class="form-messege"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="contact-info-area">
+                    <h4 class="contact-title mb-18">Contact Us</h4>
+                    <p>Lorem ipsum dolor sit amet, conse ncteturll adipisicing elit, sed do eiusmod </p>
+                    <div class="contact-info-wrap">
+
+                        @foreach (var item in Model.ListMasterContactUsInformation.Take(3))
+                        {
+                            <div class="single-contact-info">
+                                <div class="contact-info-icon">
+                                    @Html.Raw(item.MasterContactUsInformationImageUrl)
+                                </div>
+                                <div class="contact-info-content">
+                                    @Html.Raw(item.MasterContactUsInformationTitle)
+                                    @Html.Raw(item.MasterContactUsInformationIdesc)
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="map-area pt-100">
+            <div id="googleMap">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54192.8498326688!2d35.8970902!3d31.905154200000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151ca74890df1fc1%3A0xeb222cd6710fb7a5!2sAl%20Muqabalein%2C%20Amman!5e0!3m2!1sen!2sjo!4v1723640568687!5m2!1sen!2sjo" width="1170" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+

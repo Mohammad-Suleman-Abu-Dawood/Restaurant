@@ -1,0 +1,67 @@
+﻿@model Restaurant.Areas.Admin.ViewModels.MasterOfferViews
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="pagetitle">
+    <h1>Index</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Home</a></li>
+            <li class="breadcrumb-item"> <a asp-action="Index" asp-controller="Masteroffer">Masteroffer </a></li>
+            <li class="breadcrumb-item active">Create</li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div class="card">
+                <div class="card-body">
+                    
+
+
+                    <form class="row g-3" asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="col-md-6">
+                <label asp-for="MasterOfferTitle" class="control-label"></label>
+                <input asp-for="MasterOfferTitle" class="form-control" />
+                <span asp-validation-for="MasterOfferTitle" class="text-danger"></span>
+            </div>
+                        <div class="col-md-6">
+                <label asp-for="MasterOfferBreef" class="control-label"></label>
+                <input asp-for="MasterOfferBreef" class="form-control" />
+                <span asp-validation-for="MasterOfferBreef" class="text-danger"></span>
+            </div>
+                        <div class ="col-md-6">
+                <label asp-for="MasterOfferDesc" class="control-label"></label>
+                <input asp-for="MasterOfferDesc" class="form-control" />
+                <span asp-validation-for="MasterOfferDesc" class="text-danger"></span>
+            </div>
+
+
+                        <div class="col-md-6">
+                <label asp-for="Files" class="control-label"></label>
+                <input asp-for="Files" class="form-control" />
+                <span asp-validation-for="Files" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -1,0 +1,18 @@
+https://www.entityframeworktutorial.net/efcore/create-model-for-existing-database-in-ef-core.aspx?fbclid=IwY2xjawEvPQBleHRuA2FlbQIxMAABHdPMRzPtA5NN2P7F9RR10I8me48y0-5FKIyZa2CelN44nizvM7pBlS8kew_aem_7ZfiwWCr0jaPeqdP5MZilA entity framework
+
+
+
+https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.entityframeworktutorial.net%2Fefcore%2Fcreate-model-for-existing-database-in-ef-core.aspx%3Ffbclid%3DIwZXh0bgNhZW0CMTAAAR0p8rMP3-loRlJSuiWNB-vgEbO86phFAGf_rj0PyQTUJ967r-b3GJSCUUY_aem_yuJcgYz5fIRTBXfl4sBkCA&h=AT39ieUyVZzkU46QL5RcT2XfY4VMxMudSEKP0O56_T1Ci9xjYc7JVpo1LkhGpjDRO0tWFRsUN6kRnOWIxCC9ZgSBfoAW7XnnFx7T_lhCiBnWnXYO-QK50HLfM4TQXIb-ZGN5pbpv2lvSalg
+
+
+
+
+Html and Css
+Bootstrap
+Javascript and Jquery
+SQL DML,DQL,DDL
+OOP
+depanncei injection
+MVC,repository,mvvm design pattern
+Entityframeworkcore
+SOLID principles

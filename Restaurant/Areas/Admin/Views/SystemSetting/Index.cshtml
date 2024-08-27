@@ -1,0 +1,169 @@
+﻿@model IEnumerable<Restaurant.Models.SystemSetting>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="pagetitle">
+    <h1>Index</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-action="index" asp-controller="Home">Home</a></li>
+
+            <li class="breadcrumb-item"> System Setting </li>
+        </ol>
+    </nav>
+
+</div><!-- End Page Title -->
+
+<p style="    margin-bottom: 15px;
+position: relative;
+display: flow-root;">
+    <a style="float:right" class="btn btn-primary" asp-action="Create">Create New</a>
+</p>
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div class="card">
+                <div class="card-body">
+
+
+                    <table class="table datatable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SystemSettingLogoImageUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SystemSettingLogoImageUrl2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SystemSettingCopyright)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SystemSettingWelcomeNoteTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SystemSettingWelcomeNoteBreef)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SystemSettingWelcomeNoteDesc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SystemSettingWelcomeNoteUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SystemSettingWelcomeNoteImageUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SystemSettingMapLocation)
+            </th>
+            
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                                        <img src="~/Images/@item.SystemSettingLogoImageUrl" style="max-width:50px" />
+            </td>
+            <td>
+
+                                        <img src="~/Images/@item.SystemSettingLogoImageUrl2" style="max-width:50px" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SystemSettingCopyright)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SystemSettingWelcomeNoteTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SystemSettingWelcomeNoteBreef)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SystemSettingWelcomeNoteDesc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SystemSettingWelcomeNoteUrl)
+            </td>
+            <td>
+               
+                                        <img src="~/Images/@item.SystemSettingWelcomeNoteImageUrl" style="max-width:50px" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SystemSettingMapLocation)
+            </td>
+            
+            <td>
+                                        <a class="ri-ball-pen-line " asp-action="Edit" asp-route-id="@item.SystemSettingId"></a> |
+                                        <a class="PathDelete " data-bs-toggle="modal" data-bs-target="#basicModal" data-m="@Url.ActionLink("Delete", "SystemSetting", new { id = item.SystemSettingId })">
+                                            <i class=" ri-delete-bin-4-fill text-danger h4"></i>
+                                        </a>
+
+                                        @if (@item.IsActive == true)
+                                        {
+                                            <a asp-action="Active" asp-route-id="@item.SystemSettingId">
+                                                <i class="ri-eye-fill text-success h5"></i>
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a asp-action="Active" asp-route-id="@item.SystemSettingId">
+                                                <i class="ri-eye-close-fill text-danger h5"></i>
+                                            </a>
+                                        }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<div class="modal fade" id="basicModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Basic Modal</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Do you Delete this Row?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary ConfirmDelete"> Delete </button>
+            </div>
+        </div>
+    </div>
+</div><!-- End Basic Modal-->
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous">
+</script>
+
+
+<script>
+    $(function () {
+        var datapath = ""
+        $('.PathDelete').on('click', function () {
+            datapath = $(this).data('m')
+
+
+        })
+
+
+        $('.ConfirmDelete').on('click', function () {
+            window.location = datapath;
+
+        })
+
+    })
+</script>

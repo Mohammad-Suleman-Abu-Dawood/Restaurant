@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Restaurant.Models.TransactionBookTable>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="pagetitle">
+
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Home</a></li>
+            <li class="breadcrumb-item"> <a asp-action="Index" asp-controller="TransactionBookTable">Transaction Book Table</a></li>
+
+        </ol>
+    </nav>
+</div>
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <table class="table datatable">
+    <thead>
+        <tr>
+            <th>
+                FullName
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                MobileNumber
+            </th>
+            <th>
+                TableDate
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransactionBookTableFullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransactionBookTableEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransactionBookTableMobileNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransactionBookTableDate)
+            </td>
+            
+        </tr>
+}
+    </tbody>
+</table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
